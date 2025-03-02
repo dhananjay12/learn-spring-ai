@@ -1,0 +1,7 @@
+### POST call to Ask API
+POST http://localhost:8080/capitalWithResponseJsonSchema
+Content-Type: application/json
+
+{
+    "stateOrCountry": "India"
+}
