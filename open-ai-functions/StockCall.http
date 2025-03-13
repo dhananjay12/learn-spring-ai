@@ -1,0 +1,7 @@
+### POST call to Ask API
+POST http://localhost:8080/stock
+Content-Type: application/json
+
+{
+    "question": "Whats is the price of tsla stock?"
+}

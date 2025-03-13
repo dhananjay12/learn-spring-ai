@@ -1,0 +1,7 @@
+### POST call to Ask API
+POST http://localhost:8080/weather
+Content-Type: application/json
+
+{
+    "question": "Whats the weather in austin?"
+}
