@@ -1,0 +1,7 @@
+### POST call to Ask API
+POST http://localhost:8080/talk
+Content-Type: application/json
+
+{
+    "question": "I am an AI assistant. How can I help you?"
+}
