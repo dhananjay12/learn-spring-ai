@@ -1,0 +1,7 @@
+### POST call to Ask API
+POST http://localhost:8080/image
+Content-Type: application/json
+
+{
+    "question": "Draw an image of a cat and dog playing together"
+}

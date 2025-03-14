@@ -17,5 +17,7 @@
         <module>spring-ai-rag</module>
         <module>rag-with-milvus</module>
         <module>open-ai-functions</module>
+        <module>open-ai-image</module>
+        <module>open-ai-audio</module>
     </modules>
 </project>
