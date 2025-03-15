@@ -4,7 +4,9 @@ import com.example.spring.ai.demo_spring_ai.dto.Answer;
 import com.example.spring.ai.demo_spring_ai.dto.GetCapitalRequest;
 import com.example.spring.ai.demo_spring_ai.dto.GetCapitalResponse;
 import com.example.spring.ai.demo_spring_ai.dto.Question;
+import com.example.spring.ai.demo_spring_ai.dto.TestSimilarityRequest;
 import com.example.spring.ai.demo_spring_ai.services.OpenAIService;
+import org.springframework.ai.moderation.ModerationResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,22 @@ public class QuestionController {
     @PostMapping("/ask")
     public Answer askQuestion(@RequestBody Question question) {
         return openAIService.getAnswer(question);
+    }
+
+    @PostMapping("/embedding")
+    public float[] embedding(@RequestBody String text) {
+        return openAIService.getEmbedding(text);
+    }
+
+    @PostMapping("/textSimilarity")
+    public double textSimilarity(@RequestBody TestSimilarityRequest testSimilarityRequest) {
+        return openAIService.textSimilarity(testSimilarityRequest.text1(),
+                testSimilarityRequest.text2());
+    }
+
+    @PostMapping("/askInMemory")
+    public Answer askQuestionInMemory(@RequestBody Question question) {
+        return openAIService.getAnswerInMemoryAdvisor(question);
     }
 
     @PostMapping("/capital")
@@ -42,5 +60,10 @@ public class QuestionController {
     @PostMapping("/capitalWithResponseJsonSchema")
     public GetCapitalResponse getCapitalWithResponseJsonSchema(@RequestBody GetCapitalRequest getCapitalRequest) {
         return this.openAIService.getCapitalWithResponseJsonSchema(getCapitalRequest);
+    }
+
+    @PostMapping("/checkModeration")
+    public ModerationResult checkModeration(@RequestBody String text) {
+        return this.openAIService.moderate(text);
     }
 }

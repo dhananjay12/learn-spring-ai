@@ -1,0 +1,5 @@
+### POST call to Ask API
+POST http://localhost:8080/embedding
+Content-Type: application/text
+
+the sun rises in the east
