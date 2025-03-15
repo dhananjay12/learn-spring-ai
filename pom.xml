@@ -19,5 +19,6 @@
         <module>open-ai-functions</module>
         <module>open-ai-image</module>
         <module>open-ai-audio</module>
+        <module>ollama-demo</module>
     </modules>
 </project>

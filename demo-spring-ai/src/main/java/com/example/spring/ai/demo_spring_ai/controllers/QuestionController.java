@@ -10,6 +10,7 @@ import org.springframework.ai.moderation.ModerationResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 
 @RestController
@@ -65,5 +66,10 @@ public class QuestionController {
     @PostMapping("/checkModeration")
     public ModerationResult checkModeration(@RequestBody String text) {
         return this.openAIService.moderate(text);
+    }
+
+    @PostMapping("/streamAnswer")
+    public Flux<String> streamAnswer(@RequestBody String text) {
+        return this.openAIService.streamAnswer(text);
     }
 }

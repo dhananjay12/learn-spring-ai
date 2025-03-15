@@ -1,0 +1,5 @@
+### POST call to Ask API
+POST http://localhost:8080/checkModeration
+Content-Type: application/text
+
+kill bill

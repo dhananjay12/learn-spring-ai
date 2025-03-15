@@ -1,0 +1,8 @@
+### POST call to Ask API
+POST http://localhost:8080/textSimilarity
+Content-Type: application/json
+
+{
+  "text1": "smart",
+  "text2": "intelligent"
+}

@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.Map;
@@ -190,5 +191,11 @@ public class OpenAIServiceImpl implements OpenAIService{
                 new ModerationPrompt(text)).getResult().getOutput();
         return moderation.getResults().get(0);
 
+    }
+
+    @Override
+    public Flux<String> streamAnswer(String question) {
+
+        return chatClient.prompt(question).stream().content();
     }
 }

@@ -5,6 +5,7 @@ import com.example.spring.ai.demo_spring_ai.dto.GetCapitalRequest;
 import com.example.spring.ai.demo_spring_ai.dto.GetCapitalResponse;
 import com.example.spring.ai.demo_spring_ai.dto.Question;
 import org.springframework.ai.moderation.ModerationResult;
+import reactor.core.publisher.Flux;
 
 public interface OpenAIService {
     String getAnswer(String question);
@@ -26,4 +27,6 @@ public interface OpenAIService {
     GetCapitalResponse getCapitalWithResponseJsonSchema(GetCapitalRequest getCapitalRequest);
 
     ModerationResult moderate(String text);
+
+    Flux<String> streamAnswer(String question);
 }
